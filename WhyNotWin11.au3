@@ -289,7 +289,7 @@ Func RunChecks($sDrive = Null)
 	$aResults[1][1] = @error
 	$aResults[1][2] = @extended
 
-	$aResults[2][0] = _CPUNameCheck(_GetCPUInfo(2), _GetCPUInfo(5))
+	$aResults[2][0] = _CPUNameCheck(_GetCPUInfo(2), _GetCPUInfo(7), _GetCPUInfo(5))
 	$aResults[2][1] = @error
 	$aResults[2][2] = @extended
 
@@ -335,7 +335,7 @@ Func RunExtendedChecks($sDrive = Null)
 
 	Local $aResults[11][3]
 
-	$aResults[2][0] = _CPUNameCheck(_GetCPUInfo(2), _GetCPUInfo(5), True)
+	$aResults[2][0] = _CPUNameCheck(_GetCPUInfo(2), _GetCPUInfo(6), _GetCPUInfo(5), True)
 	$aResults[2][1] = @error
 	$aResults[2][2] = @extended
 
@@ -656,7 +656,7 @@ Func Main(ByRef $aResults, ByRef $aExtended, ByRef $aOutput)
 					GUICtrlSetData($hCheck[0][2], _Translate($aMUI[1], "Check Skipped"))
 				Case 1
 					_GUICtrlSetState($hCheck[0][0], $iWarn)
-					GUICtrlSetData($hCheck[0][2], _Translate($aMUI[1], "64 Bit CPU") & @CRLF & _Translate($aMUI[1], "32 bit OS"))
+					GUICtrlSetData($hCheck[0][2], _Translate($aMUI[1], "64 Bit CPU") & @CRLF & _Translate($aMUI[1], "32 Bit OS"))
 				Case 2
 					_GUICtrlSetState($hCheck[0][0], $iFail)
 					GUICtrlSetData($hCheck[0][2], _Translate($aMUI[1], "32 Bit CPU") & @CRLF & _Translate($aMUI[1], "32 Bit OS"))
@@ -870,7 +870,7 @@ Func Main(ByRef $aResults, ByRef $aExtended, ByRef $aOutput)
 		GUICtrlCreateLabel(" " & _Translate($aMUI[1], "Info") & " ", 40, 20, 618, 20)
 		GUICtrlSetBkColor(-1, $GUI_BKCOLOR_TRANSPARENT)
 		If @Compiled Then
-			GUICtrlCreateIcon(@ScriptFullPath, 99, 50, 30, 40, 40)
+			GUICtrlCreateIcon(@ScriptFullPath, 208, 50, 30, 40, 40)
 		Else
 			GUICtrlCreateIcon(@ScriptDir & "\assets\WhyNotWin11.ico", -1, 50, 50, 40, 40)
 		EndIf
